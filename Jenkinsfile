@@ -51,6 +51,7 @@ pipeline {
 
           sh "'${dockerPath}/bin/docker' tag vineetvermait/poc:${env.BUILD_ID} vineetvermait/poc:latest"
           sh "'${dockerPath}/bin/docker' push vineetvermait/poc:latest"
+          sh "'${dockerPath}/bin/docker' run -d -p 8080:8080 vineetvermait/poc:latest"
         }
       }
     }
