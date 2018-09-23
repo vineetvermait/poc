@@ -1,6 +1,6 @@
 pipeline {
-  def mvnHome
   stages {
+    def mvnHome
     stage('Preparation') {
       git 'https://github.com/vineetvermait/poc'
       mvnHome = tool 'mvn'
