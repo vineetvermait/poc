@@ -1,11 +1,10 @@
 pipeline {
   stages {
-    def mvnHome
-    stage('Preparation') {
+    stage('Preparation') {      
       git 'https://github.com/vineetvermait/poc'
-      mvnHome = tool 'mvn'
     }
     stage('Build') {
+      mvnHome = tool 'mvn'
       if (isUnix()) {
         sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
       } else {
